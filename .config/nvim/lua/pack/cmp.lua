@@ -58,11 +58,15 @@ cmp.setup({
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<CR>"]  = cmp.mapping.confirm({select = true, behavior = cmp.ConfirmBehavior.Replace}),
+---@diagnostic disable-next-line: unused-local
 		["<Tab>"]  = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.confirm({select = true, behavior = cmp.ConfirmBehavior.Replace})
 			elseif luasnip.expand_or_locally_jumpable() then
 				luasnip.expand_or_jump()
+			else
+				local key = vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
+				vim.api.nvim_feedkeys(key, "nt", true)
 			end
 		end, {"i", "s"})
 		-- ["<Tab>"]  = cmp.mapping.confirm({select = true, behavior = cmp.ConfirmBehavior.Replace}),
