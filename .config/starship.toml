@@ -3,6 +3,7 @@ add_newline = true
 palette = 'nordic'
 format = """
 [╭─](bold green_bright)\
+$os\
 $username\
 $hostname\
 $directory\
@@ -16,7 +17,6 @@ $env_var\
 $custom\
 $cmd_duration\
 $jobs\
-$os\
 $container\
 $netns\
 $shell\
@@ -39,6 +39,15 @@ disabled = true
 
 # left
 # ------------------------------------------
+[os]
+disabled = false
+format = "[$symbol]($style)"
+style = "bold blue"
+
+[os.symbols]
+Windows = " "
+Arch = " "
+
 
 [character]
 success_symbol = '[](bold green_bright)'
