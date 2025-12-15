@@ -1,5 +1,5 @@
 local cmp = require("pack.cmp")
-vim.lsp.enable({ 'pyright', 'lua_ls', 'svelte', 'ts_ls', 'eslint', 'html', 'cssls', 'tailwindcss' })
+vim.lsp.enable({ 'clangd', 'lua_ls', 'svelte', 'ts_ls', 'eslint', 'html', 'cssls', 'tailwindcss' })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
@@ -40,6 +40,12 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set('n', '<C-s>', vim.lsp.buf.format)
 vim.keymap.set("i", "<C-\\>", vim.lsp.buf.signature_help)
+
+vim.lsp.config('clangd', {
+	settings = {
+		capabilities = cmp.CAPABILITIES,
+	}
+})
 
 vim.lsp.config('cssls', {
 	settings = {
