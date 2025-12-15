@@ -66,6 +66,7 @@ format = '[ $user [on](italic) ]($style)'
 [hostname]
 ssh_only = false
 disabled = false
+ssh_symbol = "🌐"
 format = "[$ssh_symbol$hostname [in](italic) ]($style)"
 style = "bold #CC8C3C"
 
