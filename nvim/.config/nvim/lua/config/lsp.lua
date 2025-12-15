@@ -50,6 +50,16 @@ vim.lsp.config('clangd', {
 vim.lsp.config('cssls', {
 	settings = {
 		capabilities = cmp.CAPABILITIES,
+		css = {
+			lint = {
+				unknownAtRules = "ignore",
+			}
+		},
+		cssLanguageServer = {
+			lint = {
+				rparentexpected = "ignore"
+			}
+		}
 	}
 })
 
@@ -62,6 +72,16 @@ vim.lsp.config('html', {
 vim.lsp.config('tailwindcss', {
 	settings = {
 		capabilities = cmp.CAPABILITIES,
+		css = {
+			lint = {
+				unknownAtRules = "ignore",
+			}
+		},
+		cssLanguageServer = {
+			lint = {
+				rparentexpected = "ignore"
+			}
+		}
 	}
 })
 

@@ -132,39 +132,3 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CursorMovedI" }, {
 local M = {}
 M.CAPABILITIES = require("cmp_nvim_lsp").default_capabilities()
 return M
-
--- vim.lsp.config.lua_ls.settings = {
--- 	capabilities = capabilities,
--- }
---
--- vim.lsp.config.clangd.settings = {
--- 	capabilities = capabilities,
--- }
---
--- vim.lsp.config.ts_ls.settings = {
--- 	capabilities = capabilities,
--- }
-
--- vim.lsp.config.html.settings = {
--- 	capabilities = capabilities,
--- }
-
--- vim.lsp.config.cssls.settings = {
--- 	capabilities = capabilities,
--- }
---
--- vim.lsp.config.emmet_language_server.settings = {
--- 	capabilities = capabilities,
--- }
---
--- vim.lsp.config.tailwindcss.settings = {
--- 	capabilities = capabilities,
--- }
---
--- vim.lsp.config.rust_analyzer.settings = {
--- 	capabilities = capabilities,
--- }
---
--- vim.lsp.config.svelte.settings = {
--- 	capabilities = capabilities,
--- }
