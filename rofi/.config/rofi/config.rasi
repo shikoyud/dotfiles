@@ -1,0 +1,126 @@
+@theme "/usr/share/rofi/themes/Monokai.rasi"
+
+configuration {
+	modi: "drun,run,filebrowser";
+	show-icons: true;
+	display-drun: "Apps";
+	display-run: "Run";
+	display-filebrowser: "Files";
+	display-window: "Windows";
+	drun-display-format: "{name}";
+	window-format: "{w} · {c} · {t}";
+	hover-select: true;
+	me-select-entry: "MouseSecondary";
+	me-accpet-entry: "MousePrimary";
+	kb-accept-entry: "Tab,Return";
+	kb-remove-to-eol: "";
+	kb-element-next: "Control+j";
+	kb-element-prev: "Control+k";
+}
+
+* {
+	font: "FiraCode Nerd Font Mono 12";
+}
+
+window {
+	enabled: true;
+	border: 2px;
+	border-radius: 30px;
+	width: 50%;
+	background-color: rgba(0,0,0, 0.7);
+}
+
+mainbox {
+	enabled: true;
+	padding: 15px;
+	orientation: vertical;
+	children: [ "inputbar", "listbox"];
+}
+
+inputbar {
+	enabled: true;
+	padding: 10px 10px 100px 10px;
+	margin: 10px;
+	background-image: url("~/.config/hypr/wallpapers/wallhaven-5yye55_1920x1080.png", width);
+	border-radius: 25px;
+	orientation: horizontal;
+	children: ["entry", "dummy", "mode-switcher"];
+}
+
+entry {
+	expand: false;
+	width: 20%;
+	padding: 12px 10px 10px 10px;
+	border-radius: 12px;
+	cursor: text;
+	placeholder: " <b>Search</b> ";
+	placeholder-markup: true;
+	background-color: #96a6c8;
+	text-color: black;
+	text-transform: bold;
+}
+
+listbox {
+	spacing: 20px;
+	padding: 20px;
+	children: ["message", "listview"];
+}
+
+listview {
+	columns: 2;
+	lines: 6;
+	cycle: true;
+	dynamic: true;
+	scrollbar: false;
+	layout: vertical;
+	reverse: false;
+	fixed-height: false;
+	fixed-column: true;
+	spacing: 10px;
+	border: 0px;
+}
+
+dummy {
+	expand: true;
+}
+
+mode-switcher {
+	spacing: 10px;
+	border: 0px;
+}
+
+button {
+	width: 5%;
+	padding: 12px;
+	border-radius: 12px;
+	cursor: pointer;
+	text-color: white;
+	background-color: black;
+}
+
+button selected {
+	text-color: black;
+	background-color: #96a6c8;
+}
+
+element {
+	spacing: 10px;
+	padding: 10px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+element-icon {
+	size: 36px;
+}
+
+element selected.normal {
+	background-color: #96a6c8;
+	text-color: black;
+}
+
+element-text {
+	vertical-align: 0.5;
+	horizontal-align: 0.0;
+}
+

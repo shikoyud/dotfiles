@@ -33,6 +33,10 @@
       "src": "https://github.com/ThePrimeagen/harpoon",
       "version": "'harpoon2'"
     },
+    "image.nvim": {
+      "rev": "446a8a5cc7a3eae3185ee0c697732c32a5547a0b",
+      "src": "https://github.com/3rd/image.nvim"
+    },
     "lspkind.nvim": {
       "rev": "3ddd1b4edefa425fda5a9f95a4f25578727c0bb3",
       "src": "https://github.com/onsails/lspkind.nvim"
