@@ -97,7 +97,9 @@
 		"sort-by-number": true,
 		"persistent-workspaces": {
 			"1": [],
-			"2": []
+			"2": [],
+			"3": [],
+			"4": []
 		},
 		"format-icons": {
 			"1": "",
@@ -149,8 +151,8 @@
 	},
 	"mpris": {
 		"interval": 1,
-		"format": "{player_icon}  ",
-		"format-paused": "{status_icon}  ",
+		"format": "{player_icon} ",
+		"format-paused": "{status_icon} ",
 		"on-click-middle": "playerctl previous",
 		"on-click": "playerctl play-pause",
 		"on-click-right": "playerctl next",
@@ -174,9 +176,9 @@
 		"max-length": 10
 	},
 	"pulseaudio": {
-		"format": "{icon}  ",
+		"format": "{icon} ",
 		"format-bluetooth": "{icon} 󰂰 {volume} ",
-		"format-muted": "󰖁  ",
+		"format-muted": "󰖁 ",
 		"format-icons": {
 			"default": [
 				"", "", ""

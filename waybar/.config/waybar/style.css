@@ -1,7 +1,10 @@
 * {
 	all: unset;
-	font-family: "Fira Code Nerd Font", "Font Awesome 5 Brands";
-	font: bold 16px "FiraCode Nerd Font" ;
+	font-family: "FiraCode Nerd Font Mono", "Font Awesome 5 Brands";
+	font-weight: bold;
+	min-height: 0;
+	font-size: 20px;
+	font-feature-settings: '"zero"';
 }
 
 window#waybar {
@@ -25,7 +28,8 @@ tooltip {
 }
 
 #custom-menu {
-	color: white;
+	color: #00b1ef;
+	font-size: 28px;
 	padding: 3px 10px 3px 8px;
 	margin: 5px 3px 5px 0px;
 	border-radius: 5px;
@@ -49,7 +53,6 @@ tooltip {
 	color: white;
 }
 
-#custom-notifications,
 #custom-right,
 #hub,
 #info {
@@ -64,7 +67,7 @@ tooltip {
 	padding-left: 1px;
 	padding-right: 3px;
 	margin-left: 4px;
-	color: #ffdd33;
+	color: #cc8c3c;
 }
 
 
@@ -76,17 +79,14 @@ tooltip {
 	border-radius: 5px;
 }
 
-/* #workspaces { */
-/* 	background-color: #4b4347; */
-/* 	color: #979797; */
-/* 	margin: 5px 3px 5px 0px; */
-/* 	border-radius: 5px; */
-/* } */
 
 #workspaces button {
 	color: #979797;
-	padding-right: 5px;
 	border-radius: 5px;
+}
+
+#workspaces button label {
+	font-size: 30px;
 }
 
 #workspaces button.visible {
@@ -99,16 +99,27 @@ tooltip {
 }
 
 #workspaces button.active {
-	background-color: #4b4347;
+	background-color: #282828;
 	color: #979797;
+}
+#workspaces button.urgent {
+	color: red;
 }
 
 #idle_inhibitor.activated {
+	margin-top: 2px;
+	font-size: 30px;
 	color: #73d936;
 }
 
 #idle_inhibitor.deactivated {
+	margin-top: 2px;
+	font-size: 30px;
 	color: #e8363e;
+}
+
+#pulseaudio {
+	font-size: 30px;
 }
 
 
@@ -117,7 +128,7 @@ tooltip {
 	padding-right: 3px;
 	margin-left: 3px;
 	margin-right: 2px;
-	color: #ffdd33;
+	color: #cc8c3c;
 }
 
 #tray {
@@ -139,15 +150,20 @@ tooltip {
 }
 
 #custom-power {
-	color: white;
+	color: #bf616a;
 	padding: 3px 10px 3px 7px;
 	margin: 5px 0px 5px 3px;
 	border-radius: 5px;
+	font-size: 28px;
 }
 
 #custom-power:hover {
 	background-color: #282828;
 	color: white;
+}
+
+#battery {
+	color: #73d936;
 }
 
 #battery.warning {
@@ -158,9 +174,21 @@ tooltip {
 	color: #e8363e;
 }
 
+#mpris {
+	font-size: 32px;
+}
+
 #mpris.chromium {
 	color: #669df6;
 }
 #mpris.spotify {
 	color: #1ed760;
+}
+
+#custom-notifications {
+	background-color: #282828;
+	color: #ffdd33;
+	padding: 3px 10px 3px 8px;
+	margin: 5px 3px 5px 3px;
+	border-radius: 5px;
 }
