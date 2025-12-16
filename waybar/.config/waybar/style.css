@@ -1,175 +1,166 @@
-@import './color.css';
-
-@define-color main-color @color15;
 * {
-	all: unset; /*this is really important to isolate waybar from gtk*/
-	font: bold 16px "Fira Code Nerd Font" ;
-	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-	border: none;
-	border-radius: 0;
-	box-shadow: none;
-	text-shadow: none;
+	all: unset;
+	font-family: "Fira Code Nerd Font", "Font Awesome 5 Brands";
+	font: bold 16px "FiraCode Nerd Font" ;
 }
-
 
 window#waybar {
-	background: #181818;
+	background-color: #181818;
 	border-radius: 5px;
 }
 
-#window {
-	padding: 0px 8px;
-	margin: 5px 4px 5px 4px;
-	border-radius: 5px;
-	background: alpha(@color12, 0.3);
-	color: lighter(@main-color);
+.modules-left {
+	margin-left: 5px;
+}
+
+.modules-right {
+	margin-right: 5px;
 }
 
 tooltip {
-	background: @background;
-	border: 2px solid alpha(lighter(@main-color), 0.8);
-	border-radius: 10px;
+	background-color: #181818;
+	padding: 15px;
+	border: 1.5px solid white;
+	border-radius: 15px;
 }
 
-tooltip label {
-	color: @freground;
-}
-
-#custom-arrow-right {
-	color: @main-color;
-	margin: 0px 4px;
-}
-
-#cpu,
-#memory,
-#temperature,
-#disk,
-#custom-updates {
-	padding: 0px 6px;
-	margin: 6px 4px;
-	background: alpha(darker(@main-color), 0.4);
-	color: @main-color;
-	border-radius: 10px;
-}
-
-#workspaces {
-	margin: 4px 4px;
-	background: alpha(lighter(@color4), 0.09);
+#custom-menu {
+	color: white;
+	padding: 3px 10px 3px 8px;
+	margin: 5px 3px 5px 0px;
 	border-radius: 5px;
 }
 
-#workspaces button {
-	padding: 0px 4px;
-	margin: 0px 0px;
-	color: alpha(@foreground, 0.3);
+#custom-menu:hover {
+	background-color: #282828;
+	color: white;
 }
 
-#workspaces button.active {
-	transition: color 0.5s;
-	color: lighter(@main-color);
-
-}
-
-
-#workspaces button.urgent,
-#workspaces button:hover {
-	color: @color12;
-	background-color: transparent;
-}
-#demo,
-#control-center {
-	padding: 0px 6px;
-	margin: 4px 2px 4px 2px ;
-	color: lighter(@color3);
-	background: alpha(lighter(@main-color),0.08);
+#window {
+	background-color: #96a6c8;
+	color: black;
+	padding: 3px 10px 3px 8px;
+	margin: 5px 3px 5px 3px;
 	border-radius: 5px;
 }
 
-#bluetooth,
-#network,
-#pulseaudio {
-	padding: 0px 0 0 4px;
-}
-
-#pulseaudio-slider slider {
-	min-height: 0px;
-	min-width: 0px;
-	background-color: transparent;
-	border: none;
-	box-shadow: none;
-}
-
-#pulseaudio-slider {
-	margin: 6px;
-}
-
-#pulseaudio-slider highlight {
-	border-radius: 8px;
-	background-color: lighter(@main-color);
-}
-
-#language {
-	padding: 0px 3px 2px 0px;
-}
-
-#custom-arrow-left {
-	color: lighter(@main-color);
-	margin: 0px 4px;
+#window:hover {
+	background-color: #687288;
+	color: white;
 }
 
 #custom-notifications,
-#custom-weather,
-#custom-theme-switcher {
-	padding: 0px 8px;
-	margin: 8px 4px;
-	color: @main-color;
-	background: alpha(darker(@main-color), 0.8);
-	border-radius: 10px;
-}
-#tray {
-	padding: 0px 8px;
-	margin: 4px 2px 4px 8px;
-	background: alpha(@color12,0.3);
+#custom-right,
+#hub,
+#info {
+	background-color: #282828;
+	color: white;
+	padding: 3px 10px 3px 8px;
+	margin: 5px 3px 5px 3px;
 	border-radius: 5px;
-	color: lighter(@main-color);
 }
 
+#custom-arrow-right {
+	padding-left: 1px;
+	padding-right: 3px;
+	margin-left: 4px;
+	color: #ffdd33;
+}
+
+
+#cpu, #memory, #temperature {
+	background-color: #cc8c3c;
+	color: #181818;
+	margin-right: 8px;
+	padding: 0 5px;
+	border-radius: 5px;
+}
+
+/* #workspaces { */
+/* 	background-color: #4b4347; */
+/* 	color: #979797; */
+/* 	margin: 5px 3px 5px 0px; */
+/* 	border-radius: 5px; */
+/* } */
+
+#workspaces button {
+	color: #979797;
+	padding-right: 5px;
+	border-radius: 5px;
+}
+
+#workspaces button.visible {
+	color: white;
+}
+
+#workspaces button:hover {
+	background-color: #282828;
+	color: white;
+}
+
+#workspaces button.active {
+	background-color: #4b4347;
+	color: #979797;
+}
+
+#idle_inhibitor.activated {
+	color: #73d936;
+}
+
+#idle_inhibitor.deactivated {
+	color: #e8363e;
+}
+
+
+#custom-arrow-left {
+	padding-left: 1px;
+	padding-right: 3px;
+	margin-left: 3px;
+	margin-right: 2px;
+	color: #ffdd33;
+}
+
+#tray {
+	margin-left: 5px;
+}
 #tray menu {
 	background-color: #181818;
-	border: 2px solid white;
-	border-radius: 5px;
-	padding: 5px;
+	padding: 10px;
+	border: 3px solid white;
+	border-radius: 15px;
 }
-
-#custom-menu,
-#custom-power {
-	padding: 0px 8px;
-	margin: 6px 6px 6px 4px;
-	background: alpha(@color12,1);
-	border-radius: 5px;
-	color: lighter(@main-color);
-}
-
 
 #clock {
-	padding: 0px 8px;
-	margin: 5px 2px 5px 4px;
-	background: alpha(@color12,0.3);
+	background-color: #96a6c8;
+	color: black;
+	padding: 3px 10px 3px 8px;
+	margin: 5px 3px 5px 3px;
 	border-radius: 5px;
-	color: lighter(@main-color);
 }
 
-#power,
-#bluetooth,
+#custom-power {
+	color: white;
+	padding: 3px 10px 3px 7px;
+	margin: 5px 0px 5px 3px;
+	border-radius: 5px;
+}
 
+#custom-power:hover {
+	background-color: #282828;
+	color: white;
+}
 
-#mpd,
-#pulseaudio,
+#battery.warning {
+	color: #FFDD33;
+}
 
-#battery,
+#battery.critical {
+	color: #e8363e;
+}
 
-
-#mpris{
-	padding: 4px 4px;
-	color: lighter(@main-color);
+#mpris.chromium {
+	color: #669df6;
+}
+#mpris.spotify {
+	color: #1ed760;
 }

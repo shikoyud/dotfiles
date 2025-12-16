@@ -7,37 +7,32 @@
 	"margin-right": 50,
 	"margin-top": 5,
 	"fixed-center": true,
-	// "reload_style_on_change": true,
 
 	"modules-left": [
     "custom/menu",
-    "custom/separator#blank",
     "hyprland/window",
     "group/info"
   ],
   "modules-center": [
-    "hyprland/workspaces#4"
+    "hyprland/workspaces"
   ],
 
   "modules-right": [
-  "idle_inhibitor",
-  "group/demo",
-   "group/hub",
-   "custom/power"
+		"idle_inhibitor",
+		"group/custom-right",
+		"clock",
+		"custom/notifications",
+		"group/hub",
+		"custom/power"
   ],
 	// MODULES
 
 	"custom/menu": {
 		"format": "{}",
-		"exec": "echo ; echo 󱓟 app launcher",
-		"interval": 86400, // once every day
+		"exec": "echo ; echo 󱓟 App launcher",
+		"interval": 86400,
 		"tooltip": true,
 		"on-click": "pkill rofi || rofi -show drun -modi run,drun,filebrowser,window"
-	},
-	"custom/separator#blank": {
-		"format": "",
-		"interval": "once",
-		"tooltip": false
 	},
 	"hyprland/window": {
 		"format": "󰣆 {title}",
@@ -69,29 +64,29 @@
 	},
 	"memory": {
 		"interval": 10,
-		"format": "{used:0.1f}G 󰾆",
-		"format-alt": "{percentage}% 󰾆",
+		"format": "󰾆 {used:0.1f}G",
+		"format-alt": "󰾆 {percentage}%",
 		"format-alt-click": "click",
 		"tooltip": true,
 		"tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
 		"on-click-right": "kitty --title btop sh -c 'btop'"
 	},
 	"temperature": {
-		"interval": 10,
+		"interval": 5,
 		"tooltip": true,
 		"hwmon-path": [
 			"/sys/class/hwmon/hwmon6/temp1_input",
 			"/sys/class/thermal/thermal_zone0/temp"
 		],
-		"critical-threshold": 82,
-		"format-critical": "{temperatureC}°C {icon}",
-		"format": "{temperatureC}°C {icon}",
+		"critical-threshold": 80,
+		"format-critical": "{icon} {temperatureC}°C",
+		"format": "{temperatureC}°C",
 		"format-icons": [
 			"󰈸"
 		],
 		"on-click-right": "kitty --title nvtop sh -c 'nvtop'"
 	},
-	"hyprland/workspaces#4": {
+	"hyprland/workspaces": {
 		"format": " {icon} ",
 		"show-special": false,
 		"active-only": false,
@@ -102,21 +97,15 @@
 		"sort-by-number": true,
 		"persistent-workspaces": {
 			"1": [],
-			"2": [],
-			"3": [],
-			"4": []
+			"2": []
 		},
 		"format-icons": {
-			"1": " ",
-			"2": " ",
-			"3": " ",
-			"4": " ",
-			"5": "",
-			"6": " ",
-			"7": "",
-			"8": " ",
-			"9": " ",
-			"10": "10",
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"9": "",
+			"10": "",
 			"focused": "",
 			"default": ""
 		}
@@ -130,103 +119,13 @@
 		"tooltip-format-activated": "Idle mode: on",
 		"tooltip-format-deactivated": "Idle mode: off"
 	},
-	"group/demo": {
-		"orientation": "inherit",
-		"modules": [ "group/custom_right" , "battery"]
-	},
-	"group/custom_right": {
+	"group/custom-right": {
 		"orientation": "horizontal",
 		"modules": [
 			"mpris",
-			"pulseaudio"
+			"pulseaudio",
+			"battery"
 		]
-	},
-	"tray": {
-		"icon-size": 18,
-		"spacing": 4,
-		"icons": {
-		}
-	},
-	"pulseaudio": {
-		"format": "{icon} ",
-		"format-bluetooth": "{icon} 󰂰 {volume} ",
-		"format-muted": "󰖁 ",
-		"format-icons": {
-			"default": [
-				"", "", ""
-			],
-			"ignored-sinks": [
-				"Easy Effects Sink"
-			]
-		},
-		"scroll-step": 5.0,
-		"on-click": "pamixer -t",
-		"on-click-right": "pavucontrol",
-		"on-scroll-up": "pamixer -d 5",
-		"on-scroll-down": "pamixer -i 5",
-		"tooltip-format": "{icon} {desc} | {volume}%",
-		"smooth-scrolling-threshold": 1
-	},
-	"mpris": {
-		"interval": 1,
-		"format": "{player_icon} ",
-		"format-paused": "{status_icon}",
-		"on-click-middle": "playerctl play-pause",
-		"on-click": "playerctl previous",
-		"on-click-right": "playerctl next",
-		"scroll-step": 5.0,
-		"smooth-scrolling-threshold": 1,
-		"player-icons": {
-			"chromium": "",
-			"mpd" : "",
-			"default": "",
-			"firefox": "",
-			"mopidy": "",
-			"mpv": "󰐹",
-			"spotify": "",
-			"vlc": "󰕼"
-		},
-		"status-icons": {
-			"paused": "󰐎",
-			"playing": "",
-			"stopped": ""
-		},
-		"max-length": 10
-	},
-	"battery": {
-		"states": {
-			"good": 95,
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "{icon}",
-		"format-charging": "<b>{icon}</b>",
-		"format-full": "<span color='#82A55F'><b>{icon}</b></span>",
-		"format-icons": [
-			"󰁻",
-			"󰁼",
-			"󰁾",
-			"󰂀",
-			"󰂂",
-			"󰁹"
-		],
-		"tooltip-format": "{timeTo} {capacity} % | {power} W"
-	},
-	"group/hub": {
-		"orientation": "inherit",
-		"modules": ["group/utils", "clock"]
-	},
-	"group/utils": {
-		"orientation": "inherit",
-		"drawer": {
-			"transition-duration": 300,
-			"transition-left-to-right": true
-		},
-		"modules": ["custom/arrow-left", "tray", "custom/notifications"]//, "custom/weather", "custom/theme-switcher"]
-	},
-	"custom/arrow-left": {
-		"format": "󰁒",
-		"tooltip": false
 	},
 	"custom/notifications": {
 		"tooltip": false,
@@ -248,6 +147,80 @@
 		"on-click-right": "swaync-client -d -sw",
 		"escape": true
 	},
+	"mpris": {
+		"interval": 1,
+		"format": "{player_icon}  ",
+		"format-paused": "{status_icon}  ",
+		"on-click-middle": "playerctl previous",
+		"on-click": "playerctl play-pause",
+		"on-click-right": "playerctl next",
+		"scroll-step": 5.0,
+		"smooth-scrolling-threshold": 1,
+		"player-icons": {
+			"chromium": "",
+			"mpd" : "",
+			"default": "",
+			"firefox": "",
+			"mopidy": "",
+			"mpv": "󰐹",
+			"spotify": "",
+			"vlc": "󰕼"
+		},
+		"status-icons": {
+			"paused": "󰐎",
+			"playing": "",
+			"stopped": ""
+		},
+		"max-length": 10
+	},
+	"pulseaudio": {
+		"format": "{icon}  ",
+		"format-bluetooth": "{icon} 󰂰 {volume} ",
+		"format-muted": "󰖁  ",
+		"format-icons": {
+			"default": [
+				"", "", ""
+			],
+			"ignored-sinks": [
+				"Easy Effects Sink"
+			]
+		},
+		"scroll-step": 5.0,
+		"on-click": "pamixer -t",
+		"on-click-right": "pavucontrol",
+		"on-scroll-up": "pamixer -d 5",
+		"on-scroll-down": "pamixer -i 5",
+		"tooltip-format": "{icon} {desc} | {volume}%",
+		"smooth-scrolling-threshold": 1
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon}",
+		"format-charging": "<span color='#73d936'><b>{icon}</b></span>",
+		"format-icons": [ "󰁻", "󰁼", "󰁾", "󰂀", "󰂂", "󰁹" ],
+		"tooltip-format": "{timeTo} {capacity} % | {power} W"
+	},
+	"group/hub": {
+		"orientation": "horizontal",
+		"drawer": {
+			"transition-duration": 300,
+			"transition-left-to-right": true
+		},
+		"modules": ["custom/arrow-left", "tray"]
+	},
+	"custom/arrow-left": {
+		"format": "󰁒",
+		"tooltip": false
+	},
+	"tray": {
+		"icon-size": 18,
+		"spacing": 4,
+		"icons": {
+		}
+	},
 	"clock": {
 		"interval": 1,
 		"format": "{:%I:%M %p}",
@@ -259,17 +232,17 @@
 			"weeks-pos": "right",
 			"on-scroll": 1,
 			"format": {
-				"months": "<span color='#ffead3'><b>{}</b></span>",
-				"days": "<span color='#ecc6d9'><b>{}</b></span>",
-				"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+				"months": "<span color='#ffdd33'><b>{}</b></span>",
+				"days": "<span color='white'><b>{}</b></span>",
+				"weeks": "<span color='#9e95c7'><b>W{}</b></span>",
+				"weekdays": "<span color='#cc8c3c'><b>{}</b></span>",
+				"today": "<span color='#ff3e00'><b><u>{}</u></b></span>"
 			}
 		}
 	},
 	"custom/power": {
 		"format": "⏻",
-		"exec": "echo ; echo 󰟡 power",
+		"exec": "echo ; echo 󰟡 Power",
 		"on-click": "wlogout",
 		"interval": 86400,
 		"tooltip": true
