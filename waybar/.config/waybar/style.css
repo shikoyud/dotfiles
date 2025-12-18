@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-	background-color: #181818;
+	background-color: rgba(24,24,24, 0.8);
 	border-radius: 5px;
 }
 
@@ -29,6 +29,7 @@ tooltip {
 
 #custom-menu {
 	color: #00b1ef;
+	background-color: rgba(24,24,24, 0.8);
 	font-size: 28px;
 	padding: 3px 10px 3px 8px;
 	margin: 5px 3px 5px 0px;

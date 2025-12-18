@@ -21,7 +21,9 @@ button label {
 	color: transparent;
 }
 
-button:focus,
+button:focus {
+	border: 2px solid #96a6c8;
+}
 button:hover,
 button:active {
 	box-shadow: none;
