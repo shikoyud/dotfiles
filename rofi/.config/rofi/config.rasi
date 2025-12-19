@@ -12,7 +12,8 @@ configuration {
 	hover-select: true;
 	me-select-entry: "MouseSecondary";
 	me-accpet-entry: "MousePrimary";
-	kb-accept-entry: "Tab,Return";
+	kb-mode-next: "Tab";
+	kb-accept-entry: "Return";
 	kb-remove-to-eol: "";
 	kb-element-next: "Control+j";
 	kb-element-prev: "Control+k";

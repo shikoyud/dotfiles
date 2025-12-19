@@ -14,22 +14,48 @@ local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 local colorizer = require("tailwindcss-colorizer-cmp").formatter
 
-local lsp_kinds = { Class = " ", Color = " ", Constant = " ", Constructor = " ", Enum = " ", EnumMember = " ", Event =
-" ", Field = " ", File = " ", Folder = " ", Function = " ", Interface = " ", Keyword = " ", Method = " ", Module =
-" ", Operator = " ", Property = " ", Reference = " ", Snippet = " ", Struct = " ", Text = " ", TypeParameter =
-" ", Unit = " ", Value = " ", Variable = " ", }
+local lsp_kinds = {
+	Class = " ",
+	Color = " ",
+	Constant = " ",
+	Constructor = " ",
+	Enum = " ",
+	EnumMember = " ",
+	Event =
+	" ",
+	Field = " ",
+	File = " ",
+	Folder = " ",
+	Function = " ",
+	Interface = " ",
+	Keyword = " ",
+	Method = " ",
+	Module =
+	" ",
+	Operator = " ",
+	Property = " ",
+	Reference = " ",
+	Snippet = " ",
+	Struct = " ",
+	Text = " ",
+	TypeParameter =
+	" ",
+	Unit = " ",
+	Value = " ",
+	Variable = " ",
+}
 
 cmp.setup.cmdline(':', {
-    sources = {
-        { name = 'path' },
-        { name = 'cmdline' }
-    }
+	sources = {
+		{ name = 'path' },
+		{ name = 'cmdline' }
+	}
 })
 cmp.setup.cmdline('q:', {
-    sources = {
-        { name = 'path' },
-        { name = 'cmdline' }
-    }
+	sources = {
+		{ name = 'path' },
+		{ name = 'cmdline' }
+	}
 })
 
 cmp.setup({
@@ -57,19 +83,18 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<CR>"]  = cmp.mapping.confirm({select = true, behavior = cmp.ConfirmBehavior.Replace}),
----@diagnostic disable-next-line: unused-local
-		["<Tab>"]  = cmp.mapping(function(fallback)
+		["<CR>"]  = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+		---@diagnostic disable-next-line: unused-local
+		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
-				cmp.confirm({select = true, behavior = cmp.ConfirmBehavior.Replace})
+				cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
 			elseif luasnip.expand_or_locally_jumpable() then
 				luasnip.expand_or_jump()
 			else
 				local key = vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
 				vim.api.nvim_feedkeys(key, "nt", true)
 			end
-		end, {"i", "s"})
-		-- ["<Tab>"]  = cmp.mapping.confirm({select = true, behavior = cmp.ConfirmBehavior.Replace}),
+		end, { "i", "s" })
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
