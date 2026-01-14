@@ -1,4 +1,4 @@
-vim.lsp.enable({ 'clangd', 'lua_ls', 'svelte', 'ts_ls', 'eslint', 'html', 'cssls', 'tailwindcss' })
+vim.lsp.enable({'ruff', 'pyright', 'clangd', 'lua_ls', 'svelte', 'ts_ls', 'eslint', 'html', 'cssls', 'tailwindcss' })
 
 vim.api.nvim_create_autocmd('Filetype', {
 	pattern = 'java',
@@ -35,6 +35,35 @@ vim.keymap.set('n', '<C-s>', vim.lsp.buf.format)
 vim.keymap.set("i", "<C-\\>", vim.lsp.buf.signature_help)
 
 local cmp = require("pack.cmp")
+
+vim.lsp.config('ruff', {
+	settings = {
+		capabilities = cmp.CAPABILITIES,
+		python = {
+			analysis = {
+				diagnosticSeverityOverrides = {
+					reportArgumentType = "none",
+					reportOptionalMemberAccess = "none"
+				}
+			}
+		}
+	}
+})
+
+vim.lsp.config('pyright', {
+	settings = {
+		capabilities = cmp.CAPABILITIES,
+		python = {
+			analysis = {
+				diagnosticSeverityOverrides = {
+					reportArgumentType = "none",
+					reportOptionalMemberAccess = "none"
+				}
+			}
+		}
+	}
+})
+
 vim.lsp.config('clangd', {
 	settings = {
 		capabilities = cmp.CAPABILITIES,
