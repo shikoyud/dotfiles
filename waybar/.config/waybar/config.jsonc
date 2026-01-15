@@ -1,5 +1,4 @@
 {
-	"position": "bottom",
 	"height": 40,
 	"fixed-center": true,
 
@@ -109,10 +108,10 @@
 		"max-length": 25,
 		"separate-outputs": false,
 		"rewrite": {
-			"(.*) Google Chrome": "<span color='#9D94C6'><b> Chrome</b></span>",
-			"^.*v .*\\/([^\\/]+)$": "<span color='#9D94C6'><b> $1</b></span>",
-			"^.*~$": "<span color='#9D94C6'><b>󰄛 Kitty</b></span>",
-			"(.*) ": "<span color='#9D94C6'><b> Empty</b></span>"
+			"(.*) Google Chrome": " Chrome",
+			"^.*v .*\\/([^\\/]+)$": " $1",
+			"^.*~$": "󰄛 Kitty",
+			"(.*) ": " Empty"
 		}
 	},
 

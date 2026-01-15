@@ -9,6 +9,7 @@
 
 window#waybar {
 	background-color: rgba(24,24,24, 0.9);
+	border-top: 1px solid #969696;
 	border-left: 1px solid #969696;
 	border-right: 1px solid #969696;
 	border-bottom: 1px solid #969696;
@@ -32,6 +33,10 @@ tooltip label {
 
 #workspaces button label {
 	font-size: 25px;
+}
+
+#window label {
+	color: #9D94C6;
 }
 
 #idle_inhibitor,
