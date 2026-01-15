@@ -1,210 +1,214 @@
 {
-	"layer": "top",
-	"position": "top",
-	"height": 30,
-	"width": 1300,
-	"margin-left": 50,
-	"margin-right": 50,
-	"margin-top": 5,
+	"position": "bottom",
+	"height": 40,
 	"fixed-center": true,
 
 	"modules-left": [
-    "custom/menu",
-    "hyprland/window",
-    "group/info"
+    "group/info",
+		"custom/separator",
+		"idle_inhibitor",
+		"custom/separator",
+    "hyprland/workspaces"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "hyprland/window"
   ],
 
   "modules-right": [
-		"idle_inhibitor",
-		"group/custom-right",
-		"clock",
+		"mpris",
+		"custom/separator",
+		"pulseaudio",
 		"custom/notifications",
-		"group/hub",
-		"custom/power"
+		"battery",
+		"custom/separator",
+		"clock",
+		"custom/separator",
+		"group/hub"
   ],
-	// MODULES
 
-	"custom/menu": {
-		"format": "{}",
-		"exec": "echo ; echo 󱓟 App launcher",
-		"interval": 86400,
-		"tooltip": true,
-		"on-click": "pkill rofi || rofi -show drun -modi run,drun,filebrowser,window"
+	// MODULES
+	"custom/separator": {
+		"format": " ┃ ",
+		"tooltip": false
 	},
-	"hyprland/window": {
-		"format": "󰣆 {title}",
-		"max-length": 40,
-		"separate-outputs": false,
-		"rewrite": {
-			"(.*) — Mozilla Firefox": " Firefox",
-			"^.*v( .*|$)": " Neovim",
-			"^.*~$": "󰄛 Kitty",
-			"(.*) ": " Empty",
-			"^.*pdf( .*|$)": "",
-			"^.*(- Mousepad)$" :" $1"
-		}
-	},
+
 	"group/info": {
 		"orientation": "inherit",
 		"drawer": {
 			"transition-duration": 300,
 			"transition-left-to-right": false
 		},
-		"modules": ["custom/arrow-right", "cpu", "memory", "temperature"]
+		"modules": ["custom/arrow-right", "cpu", "memory", "custom/gpu"]
 	},
+
 	"custom/arrow-right": {
-		"format": "󰁙",
+		"format": " <span color='#94A89E'><b>󰁙</b></span>",
 		"tooltip": false
 	},
 	"cpu": {
-		"format": "󰘚 {usage}󱉸"
+		"interval": 2,
+		"format": " CPU {usage}% ∣ ",
+		"format-alt": " CPU {avg_frequency:0.1f}GHz ∣ "
 	},
+
 	"memory": {
-		"interval": 10,
-		"format": "󰾆 {used:0.1f}G",
-		"format-alt": "󰾆 {percentage}%",
+		"interval": 2,
+		"format": "RAM {used:0.1f}G ∣ ",
+		"format-alt": "RAM {percentage}% ∣ ",
 		"format-alt-click": "click",
-		"tooltip": true,
-		"tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
-		"on-click-right": "kitty --title btop sh -c 'btop'"
+		"on-click-right": "kitty --title btop sh -c 'btop'",
+		"tooltip": false
 	},
-	"temperature": {
-		"interval": 5,
+
+	"custom/gpu": {
+		"interval": 2,
+		"return-type": "json",
+		"exec": "~/dotfiles/waybar/.config/waybar/gpu.sh | jq --compact-output --unbuffered",
+		"format": "GPU {percentage}%",
+		"format-alt": "GPU {alt}°C",
+		"format-alt-click": "click",
+		"on-click-right": "kitty --title nvtop sh -c 'nvtop'",
 		"tooltip": true,
-		"hwmon-path": [
-			"/sys/class/hwmon/hwmon6/temp1_input",
-			"/sys/class/thermal/thermal_zone0/temp"
-		],
-		"critical-threshold": 80,
-		"format-critical": "{icon} {temperatureC}°C",
-		"format": "{temperatureC}°C",
-		"format-icons": [
-			"󰈸"
-		],
-		"on-click-right": "kitty --title nvtop sh -c 'nvtop'"
+		"tooltip-format": "Power used: {text}W"
 	},
+
 	"hyprland/workspaces": {
-		"format": " {icon} ",
+		"format": "{icon} ",
 		"show-special": false,
 		"active-only": false,
 		"on-click": "activate",
-		"on-scroll-up": "hyprctl dispatch workspace e+1",
-		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"on-scroll-down": "hyprctl dispatch workspace e+1",
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
 		"all-outputs": true,
 		"sort-by-number": true,
 		"persistent-workspaces": {
 			"1": [],
 			"2": [],
 			"3": [],
-			"4": []
+			"4": [],
+			"5": []
 		},
 		"format-icons": {
-			"1": "",
-			"2": "",
-			"3": "",
-			"4": "",
-			"9": "",
-			"10": "",
-			"focused": "",
-			"default": ""
+			"default": "<span color='#ffdd33'><b></b></span>",
+			"urgent":  "<span color='#ff5059'><b></b></span>",
+			"active":  "<span color='#ffdd33'><b></b></span>"
 		}
 	},
+
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
-			"activated": " ",
-			"deactivated": " "
+			"activated": "<span color='#73d936'><b></b></span>",
+			"deactivated": "<span color='#ff5059'><b></b></span>"
 		},
 		"tooltip-format-activated": "Idle mode: on",
 		"tooltip-format-deactivated": "Idle mode: off"
 	},
-	"group/custom-right": {
-		"orientation": "horizontal",
-		"modules": [
-			"mpris",
-			"pulseaudio",
-			"battery"
-		]
+	"hyprland/window": {
+		"format": "{title}",
+		"max-length": 25,
+		"separate-outputs": false,
+		"rewrite": {
+			"(.*) Google Chrome": "<span color='#9D94C6'><b> Chrome</b></span>",
+			"^.*v .*\\/([^\\/]+)$": "<span color='#9D94C6'><b> $1</b></span>",
+			"^.*~$": "<span color='#9D94C6'><b>󰄛 Kitty</b></span>",
+			"(.*) ": "<span color='#9D94C6'><b> Empty</b></span>"
+		}
 	},
-	"custom/notifications": {
-		"tooltip": false,
-		"format": "{icon} {text}",
-		"format-icons": {
-			"notification": "󱅫",
-			"none": "󰂚",
-			"dnd-notification": "󰂛",
-			"dnd-none": "󰂛",
-			"inhibited-notification": "󰂚",
-			"inhibited-none": "󰂚",
-			"dnd-inhibited-notification": "󰂛",
-			"dnd-inhibited-none": "󰂛"
-		},
-		"return-type": "json",
-		"exec-if": "which swaync-client",
-		"exec": "swaync-client -swb",
-		"on-click": "swaync-client -t -sw",
-		"on-click-right": "swaync-client -d -sw",
-		"escape": true
-	},
+
 	"mpris": {
-		"interval": 1,
-		"format": "{player_icon} ",
-		"format-paused": "{status_icon} ",
+		"interval": 0.5,
+		"format": "{status_icon} {title} - {artist} {player_icon}",
+		"format-paused": "{status_icon} {title} - {artist} {player_icon}",
+		"tooltip-format": " [{player}] {dynamic}",
 		"on-click-middle": "playerctl previous",
 		"on-click": "playerctl play-pause",
 		"on-click-right": "playerctl next",
-		"scroll-step": 5.0,
-		"smooth-scrolling-threshold": 1,
+		"enable-tooltip-len-limits": true,
+		"dynamic-order": [ "title", "artist", "position", "length" ],
 		"player-icons": {
-			"chromium": "",
-			"mpd" : "",
+			"chrome": "<span color='#ffdd33'><b></b></span>",
 			"default": "",
-			"firefox": "",
-			"mopidy": "",
-			"mpv": "󰐹",
-			"spotify": "",
-			"vlc": "󰕼"
+			"spotify": "<span color='#73d936'><b></b></span>",
+			"vlc": "<span color='#cb8b3e'><b>󰕼</b></span>"
 		},
 		"status-icons": {
-			"paused": "󰐎",
-			"playing": "",
-			"stopped": ""
+			"paused":  "",
+			"playing": ""
 		},
-		"max-length": 10
+		"title-len": 25,
+		"artist-len": 10
 	},
+
 	"pulseaudio": {
 		"format": "{icon} ",
 		"format-bluetooth": "{icon} 󰂰 {volume} ",
-		"format-muted": "󰖁 ",
+		"format-muted": " <span color='#ff5059'><b>󰖁</b></span> ",
 		"format-icons": {
 			"default": [
-				"", "", ""
+				"<span color='#cb8b3e'><b></b></span>",
+				"<span color='#cb8b3e'><b></b></span>",
+				"<span color='#cb8b3e'><b></b></span>"
 			],
 			"ignored-sinks": [
-				"Easy Effects Sink"
+				"Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 3 Output",
+				"Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 2 Output",
+				"Alder Lake PCH-P High Definition Audio Controller HDMI / DisplayPort 1 Output",
+				"AD107 High Definition Audio Controller Digital Stereo (HDMI)"
 			]
 		},
 		"scroll-step": 5.0,
 		"on-click": "pamixer -t",
 		"on-click-right": "pavucontrol",
-		"on-scroll-up": "pamixer -d 5",
-		"on-scroll-down": "pamixer -i 5",
-		"tooltip-format": "{icon} {desc} | {volume}%",
-		"smooth-scrolling-threshold": 1
+		"on-click-middle": "~/dotfiles/hyprland/.config/hypr/scripts/toggle_output_device.sh",
+		"on-scroll-down": "pamixer -d 5",
+		"on-scroll-up": "pamixer -i 5",
+		"tooltip-format": "{desc} | {volume}%"
 	},
+
+	"custom/notifications": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "<span color='#ffdd33'><b>󱅫</b></span>",
+			"none": "<span color='#ffdd33'><b>󰂚</b></span>",
+			"dnd-none": "<span color='#ff5059'><b>󰂛</b></span>",
+			"dnd-notification": "<span color='#ff5059'><b>󰂛</b></span>"
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -d -sw",
+		"on-click-right": "swaync-client -t -sw",
+		"escape": true
+	},
+
 	"battery": {
 		"states": {
-			"warning": 30,
-			"critical": 15
+			"warning": 50,
+			"critical": 20
 		},
-		"format": "{icon}",
-		"format-charging": "<span color='#73d936'><b>{icon}</b></span>",
-		"format-icons": [ "󰁻", "󰁼", "󰁾", "󰂀", "󰂂", "󰁹" ],
-		"tooltip-format": "{timeTo} {capacity} % | {power} W"
+		"format": " {icon}",
+		"format-charging": " <span color='#73d936'><b>{icon}</b></span>",
+		"format-icons": [
+			"<span color='#ff5059'><b>󰁻</b></span>",
+			"<span color='#ffdd33'><b>󰁼</b></span>",
+			"<span color='#ffdd33'><b>󰁾</b></span>",
+			"<span color='#73d936'><b>󰂀</b></span>",
+			"<span color='#73d936'><b>󰂂</b></span>",
+			"<span color='#73d936'><b>󰁹</b></span>"
+		],
+		"tooltip-format": "{timeTo} {capacity}% | {power}W"
 	},
+
+	"clock": {
+		"interval": 1,
+		"format": "<span color='#ffffff'><b>{:%I:%M %p}</b></span>",
+		"format-alt": "<span color='#ffffff'><b>{:%H:%M:%S %a, %d %b %Y}</b></span>",
+		"on-click-right": "dde-calendar",
+		"tooltip": false
+	},
+
 	"group/hub": {
 		"orientation": "horizontal",
 		"drawer": {
@@ -214,39 +218,12 @@
 		"modules": ["custom/arrow-left", "tray"]
 	},
 	"custom/arrow-left": {
-		"format": "󰁒",
+		"format": "<span color='#94A89E'><b>󰁒</b></span> ",
 		"tooltip": false
 	},
 	"tray": {
+		"show-passive-items": true,
 		"icon-size": 18,
-		"spacing": 4,
-		"icons": {
-		}
-	},
-	"clock": {
-		"interval": 1,
-		"format": "{:%I:%M %p}",
-		"format-alt": " {:%H:%M:%S   %a, %d %b %Y}",
-		"tooltip-format": "<tt><small>{calendar}</small></tt>",
-		"calendar": {
-			"mode": "year",
-			"mode-mon-col": 3,
-			"weeks-pos": "right",
-			"on-scroll": 1,
-			"format": {
-				"months": "<span color='#ffdd33'><b>{}</b></span>",
-				"days": "<span color='white'><b>{}</b></span>",
-				"weeks": "<span color='#9e95c7'><b>W{}</b></span>",
-				"weekdays": "<span color='#cc8c3c'><b>{}</b></span>",
-				"today": "<span color='#ff3e00'><b><u>{}</u></b></span>"
-			}
-		}
-	},
-	"custom/power": {
-		"format": "⏻",
-		"exec": "echo ; echo 󰟡 Power",
-		"on-click": "wlogout",
-		"interval": 86400,
-		"tooltip": true
+		"spacing": 10
 	}
 }
