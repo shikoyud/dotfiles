@@ -7,10 +7,10 @@
 		"custom/separator",
 		"idle_inhibitor",
 		"custom/separator",
-    "hyprland/workspaces"
+    "niri/workspaces"
   ],
   "modules-center": [
-    "hyprland/window"
+    "niri/window"
   ],
 
   "modules-right": [
@@ -71,7 +71,7 @@
 		"tooltip-format": "Power used: {text}W"
 	},
 
-	"hyprland/workspaces": {
+	"niri/workspaces": {
 		"format": "{icon} ",
 		"show-special": false,
 		"active-only": false,
@@ -103,7 +103,7 @@
 		"tooltip-format-activated": "Idle mode: on",
 		"tooltip-format-deactivated": "Idle mode: off"
 	},
-	"hyprland/window": {
+	"niri/window": {
 		"format": "{title}",
 		"max-length": 25,
 		"separate-outputs": false,
@@ -142,7 +142,7 @@
 	"pulseaudio": {
 		"format": "{icon} ",
 		"format-bluetooth": "{icon} 󰂰 {volume} ",
-		"format-muted": " <span color='#ff5059'><b>󰖁</b></span> ",
+		"format-muted": "<span color='#ff5059'><b>󰖁</b></span> ",
 		"format-icons": {
 			"default": [
 				"<span color='#cb8b3e'><b></b></span>",
@@ -157,11 +157,11 @@
 			]
 		},
 		"scroll-step": 5.0,
-		"on-click": "pamixer -t",
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"on-click-right": "pavucontrol",
 		"on-click-middle": "~/dotfiles/hyprland/.config/hypr/scripts/toggle_output_device.sh",
-		"on-scroll-down": "pamixer -d 5",
-		"on-scroll-up": "pamixer -i 5",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.5",
 		"tooltip-format": "{desc} | {volume}%"
 	},
 

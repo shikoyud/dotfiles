@@ -20,7 +20,14 @@ function M:setup()
 		},
 		root_dir = require("jdtls.setup").find_root({ ".git", "gradlew"}),
 		settings = {
-			java = {},
+			java = {
+				signatureHelp = {
+					enabled = true,
+					description = {
+						enabled = true
+					}
+				},
+			},
 		},
 		init_options = {
 			bundles = {},

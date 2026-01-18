@@ -1,0 +1,34 @@
+input {
+	keyboard {
+		xkb {
+			layout "us"
+			options "caps:escape"
+		}
+		repeat-delay 600
+		repeat-rate 25
+	}
+
+	touchpad {
+		tap
+		dwt
+		drag true
+		drag-lock
+		accel-speed 0
+		accel-profile "adaptive"
+		natural-scroll
+		scroll-method "two-finger"
+		scroll-factor 0.5
+	}
+
+	mouse {
+		accel-speed -1
+		accel-profile "adaptive"
+		scroll-method "no-scroll"
+	}
+
+	disable-power-key-handling
+	warp-mouse-to-focus
+	focus-follows-mouse max-scroll-amount="100%"
+
+	mod-key "Super"
+}
