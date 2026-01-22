@@ -7,10 +7,10 @@
 		"custom/separator",
 		"idle_inhibitor",
 		"custom/separator",
-    "niri/workspaces"
+    "hyprland/workspaces"
   ],
   "modules-center": [
-    "niri/window"
+    "hyprland/window"
   ],
 
   "modules-right": [
@@ -41,7 +41,7 @@
 	},
 
 	"custom/arrow-right": {
-		"format": " <span color='#94A89E'><b>󰁙</b></span>",
+		"format": " <span color='#94A89E'><b> 󰁙</b></span>",
 		"tooltip": false
 	},
 	"cpu": {
@@ -71,7 +71,7 @@
 		"tooltip-format": "Power used: {text}W"
 	},
 
-	"niri/workspaces": {
+	"hyprland/workspaces": {
 		"format": "{icon} ",
 		"show-special": false,
 		"active-only": false,
@@ -103,7 +103,7 @@
 		"tooltip-format-activated": "Idle mode: on",
 		"tooltip-format-deactivated": "Idle mode: off"
 	},
-	"niri/window": {
+	"hyprland/window": {
 		"format": "{title}",
 		"max-length": 25,
 		"separate-outputs": false,
@@ -167,7 +167,7 @@
 
 	"custom/notifications": {
 		"tooltip": false,
-		"format": "{icon}",
+		"format": " {icon} ",
 		"format-icons": {
 			"notification": "<span color='#ffdd33'><b>󱅫</b></span>",
 			"none": "<span color='#ffdd33'><b>󰂚</b></span>",
@@ -217,7 +217,7 @@
 		"modules": ["custom/arrow-left", "tray"]
 	},
 	"custom/arrow-left": {
-		"format": "<span color='#94A89E'><b>󰁒</b></span> ",
+		"format": "<span color='#94A89E'><b>󰁒 </b></span> ",
 		"tooltip": false
 	},
 	"tray": {

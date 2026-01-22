@@ -1,37 +1,39 @@
+spawn-sh-at-startup "wl-clip-persist -c regular"
+spawn-sh-at-startup "arch-update --tray"
 spawn-at-startup "waybar"
-spawn-at-startup "wl-clip-persist -c regular"
 spawn-at-startup "hyprpaper"
-spawn-at-startup "blueman-applet"
 
 prefer-no-csd
+
+// screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path null
 
 hotkey-overlay {
 	skip-at-startup
 }
 
-// screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-screenshot-path null
+xwayland-satellite {
+	path "xwayland-satellite"
+}
 
 cursor {
 	xcursor-theme "Bibata-Modern-Classic"
 	xcursor-size 24
-
 	hide-when-typing
 	hide-after-inactive-ms 1000
 }
+
 environment {
 	TERMINAL "alacritty"
 	TERM "alacritty"
 	QT_QPA_PLATFORM "wayland"
-	ELECTRON_OZONE_PLATFORM_HINT "auto"
+	ELECTRON_OZONE_PLATFORM "wayland"
+	WLR_DRM_DEVICES "/dev/dri/card0:/dev/dri/card1"
 	_JAVA_AWT_WM_NONREPARENTING "1"
 	NVD_BACKEND "direct"
 	LIBVA_DRIVER_NAME "nvidia"
 	__GLX_VENDOR_LIBRARY_NAME "nvidia"
 	GBM_BACKEND "nvidia-drm"
 	ENABLE_VULKAN_RENDERER "1"
-}
-
-xwayland-satellite {
-	path "xwayland-satellite"
+	__VK_LAYER_NV_optimus "NVIDIA_only"
 }

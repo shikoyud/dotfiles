@@ -19,8 +19,13 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', {noremap = true})
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('n', '<C-c>', ':noh<CR>', {noremap = true})
+
 vim.keymap.set('n', 'q:', ':', {noremap = true})
 vim.keymap.set('n', ':', 'q:i', {noremap = true})
+vim.keymap.set('n', 'q/', '/', {noremap = true})
+vim.keymap.set('n', '/', 'q/i', {noremap = true})
+vim.keymap.set('n', 'q?', '?', {noremap = true})
+vim.keymap.set('n', '?', 'q?i', {noremap = true})
 
 vim.keymap.set('c', '<C-j>', '<C-n>')
 vim.keymap.set('c', '<C-k>', '<C-p>')

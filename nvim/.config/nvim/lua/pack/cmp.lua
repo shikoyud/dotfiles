@@ -74,7 +74,7 @@ cmp.setup({
 	window = {
 		documentation = {
 			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-			scrollbar = false,
+			scrollbar = true,
 		},
 		completion = {
 			border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },

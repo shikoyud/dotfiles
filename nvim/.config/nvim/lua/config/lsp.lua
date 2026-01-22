@@ -1,4 +1,4 @@
-vim.lsp.enable({'ruff', 'pyright', 'clangd', 'lua_ls', 'svelte', 'ts_ls', 'eslint', 'html', 'cssls', 'tailwindcss' })
+vim.lsp.enable({'ruff', 'basedpyright', 'clangd', 'lua_ls', 'svelte', 'ts_ls', 'eslint', 'html', 'cssls', 'tailwindcss' })
 
 vim.api.nvim_create_autocmd('Filetype', {
 	pattern = 'java',
@@ -50,7 +50,7 @@ vim.lsp.config('ruff', {
 	}
 })
 
-vim.lsp.config('pyright', {
+vim.lsp.config('basedpyright', {
 	settings = {
 		capabilities = cmp.CAPABILITIES,
 		python = {

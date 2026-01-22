@@ -1,10 +1,10 @@
 * {
 	all: unset;
-	font-family: "Source Code Pro, FiraCode Nerd Font Mono";
+	font-family: "SF Pro Display, JetBrainsMono Nerd Font Propo";
 	font-weight: bold;
 	min-height: 0;
 	font-size: 20px;
-	font-feature-settings: '"zero"';
+	/* font-feature-settings: '"zero"'; */
 }
 
 window#waybar {
@@ -31,26 +31,26 @@ tooltip label {
 	color: #453d41;
 }
 
-#workspaces button label {
-	font-size: 25px;
-}
-
-#window label {
-	color: #9D94C6;
-}
-
-#idle_inhibitor,
-#pulseaudio{
-	font-size: 30px;
-}
-#pulseaudio.muted {
-	font-size: 28px;
-}
-
-#custom-notifications {
-	margin-right: 5px;
-}
-
+/* #workspaces button label { */
+/* 	font-size: 25px; */
+/* } */
+/**/
+/* #window label { */
+/* 	color: #9D94C6; */
+/* } */
+/**/
+/* #idle_inhibitor, */
+/* #pulseaudio{ */
+/* 	font-size: 30px; */
+/* } */
+/* #pulseaudio.muted { */
+/* 	font-size: 28px; */
+/* } */
+/**/
+/* #custom-notifications { */
+/* 	margin-right: 5px; */
+/* } */
+/**/
 #tray {
 	margin-right: 15px;
 }

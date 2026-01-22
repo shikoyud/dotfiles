@@ -37,6 +37,10 @@
       "rev": "446a8a5cc7a3eae3185ee0c697732c32a5547a0b",
       "src": "https://github.com/3rd/image.nvim"
     },
+    "lazygit.nvim": {
+      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
+      "src": "https://github.com/kdheepak/lazygit.nvim"
+    },
     "lspkind.nvim": {
       "rev": "3ddd1b4edefa425fda5a9f95a4f25578727c0bb3",
       "src": "https://github.com/onsails/lspkind.nvim"

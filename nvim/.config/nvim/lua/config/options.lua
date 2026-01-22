@@ -1,6 +1,8 @@
 vim.o.backup = false
 vim.o.clipboard = "unnamedplus"
-vim.o.cursorline = true
+vim.opt.cmdheight = 0
+-- vim.o.cursorline = true
+vim.opt.guicursor = "n-v-c:block"
 vim.o.ignorecase = true
 vim.o.list = true
 vim.o.listchars = "space:·,tab:▸\\ "

@@ -1,8 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = true
-palette = 'nordic'
+palette = 'gruber-darker'
+
+# [╭─](bold green)\
 format = """
-[╭─](bold green_bright)\
 $os\
 $username\
 $hostname\
@@ -19,14 +21,14 @@ $cmd_duration\
 $jobs\
 $container\
 $netns\
+$status\
 $shell\
 $fill\
 $all\
 $line_break\
-[╰─](bold green_bright)\
 $character\
-$status\
 $sudo"""
+# [╰─](bold green)\
 
 [fill]
 symbol = ' '
@@ -37,12 +39,11 @@ disabled = true
 [package]
 disabled = true
 
-# left
-# ------------------------------------------
 [os]
 disabled = false
-format = "[$symbol]($style)"
-style = "bold blue"
+# format = "[$symbol]($style)"
+format = ""
+style = "bold cyan"
 
 [os.symbols]
 Windows = " "
@@ -50,136 +51,99 @@ Arch = " "
 
 
 [character]
-success_symbol = '[](bold green_bright)'
-error_symbol = '[⨯](bold red_bright)'
+success_symbol = '[](green)'
+error_symbol = '[](red)'
 
 [cmd_duration]
-format = ' [ $duration](bold yellow_bright) '
+format = ' [ $duration](bold magenta) '
 show_milliseconds = true
 
 [username]
 show_always = true
-style_user = "bold bg:color_bg0 fg:#FFDD33"
-style_root = "bg:color_orange fg:color_fg0"
-format = '[ $user [on](italic) ]($style)'
+style_user = "bold yellow"
+style_root = "bold orange"
+# format = '[ $user [on](italic) ]($style)'
+format = ""
 
 [hostname]
 ssh_only = false
 disabled = false
 ssh_symbol = "🌐"
-format = "[$ssh_symbol$hostname [in](italic) ]($style)"
-style = "bold #CC8C3C"
+style = "bold orange"
+# format = "[$ssh_symbol$hostname [in](italic) ]($style)"
+format = ""
 
 [directory]
 truncation_symbol = ''
 read_only = " "
-style = 'bold cyan_bright dimmed'
+style = 'bold blue'
 
 [git_branch]
-format = '[at](italic) [$symbol$branch(:$remote_branch)](bold 218 dimmed)'
+symbol = ""
+format = '[at](italic) [$symbol$branch(:$remote_branch)](bold #8E3728)'
 
 [git_status]
-format = "[(\\[$untracked$modified$staged\\] [$ahead_behind](red))](218)"
-style = 'bold 218 dimmed'
-untracked = "[?](red)"
+format = "[(\\[$untracked$modified$staged\\] [$ahead_behind](red))](#8E3728)"
+style = 'bold #8E3728'
+untracked = "[?](bold red)"
 modified = "[!](bold yellow)"
 staged = "[+](bold green)"
 
 [status]
 disabled = false
-format = '[$status](bold red_base) '
+format = '[$status](bold red) '
 
-
-# right
-# ------------------------------------------
 
 [docker_context]
-format = ' [ $context](bold blue1) '
+format = ' [ $context](bold blue) '
 
 [dotnet]
-format = '[ ($version )](bold blue0) '
+format = '[ ($version )](bold blue) '
 version_format = 'v${major}.${minor}'
 
 [golang]
-format = '[ $version](bold cyan_bright) '
+format = '[ $version](bold cyan) '
 version_format = 'v${major}.${minor}'
 
 [gradle]
-format = '[ ($version)](bold green_bright) '
+format = '[ ($version)](bold green) '
 version_format = 'v${major}.${minor}'
 
 [java]
-format = '[ ${version}](bold red_bright) '
+format = '[ ${version}](bold red) '
 version_format = 'v${major}.${minor}'
 
 [lua]
-format = '[ $version](bold yellow_bright) '
+format = '[ $version](bold yellow) '
 version_format = 'v${major}.${minor}'
 
 [nodejs]
-format = ' [ ($version)](bold green_bright) '
+format = ' [ ($version)](bold green) '
 version_format = 'v${major}.${minor}'
 
 [pulumi]
-format = ' [󰆦 ($username@)$stack](bold yellow_bright) '
+format = ' [󰆦 ($username@)$stack](bold yellow) '
 version_format = 'v${major}.${minor}'
 
 [python]
-format = ' [ ${pyenv_prefix}(${version} )(\($virtualenv\) )](bold green_bright) '
+format = ' [ ${pyenv_prefix}(${version} )(\($virtualenv\) )](bold yellow) '
 version_format = 'v${major}.${minor}'
 
 [rust]
-format = ' [󱘗 $version](bold orange_bright) '
+format = ' [󱘗 $version](bold orange) '
 version_format = 'v${major}.${minor}'
 
 [terraform]
-format = ' [󰆩 $workspace](bold magenta_bright) '
+format = ' [󰆩 $workspace](bold magenta) '
 version_format = 'v${major}.${minor}'
 
-[palettes.nordic]
-
-black0 = '#191D24'
-black1 = '#1E222A'
-black2 = '#222630'
-
-gray0 = '#242933'
-gray1 = '#2E3440'
-gray2 = '#3B4252'
-gray3 = '#434C5E'
-gray4 = '#4C566A'
-gray5 = '#60728A'
-
-white0_normal = '#BBC3D4'
-white0_reduce_blue = '#C0C8D8'
-
-white1 = '#D8DEE9'
-white2 = '#E5E9F0'
-white3 = '#ECEFF4'
-
-blue0 = '#5E81AC'
-blue1 = '#81A1C1'
-blue2 = '#88C0D0'
-
-cyan_base = '#8FBCBB'
-cyan_bright = '#9FC6C5'
-cyan_dim = '#80B3B2'
-
-red_base = '#BF616A'
-red_bright = '#C5727A'
-red_dim = '#B74E58'
-
-orange_base = '#D08770'
-orange_bright = '#D79784'
-orange_dim = '#CB775D'
-
-yellow_base = '#EBCB8B'
-yellow_bright = '#EFD49F'
-yellow_dim = '#E7C173'
-
-green_base = '#A3BE8C'
-green_bright = '#B1C89D'
-green_dim = '#97B67C'
-
-magenta_base = '#9E95C7'
-magenta_bright = '#BE9DB8'
-magenta_dim = '#857EA6'
+[palettes.gruber-darker]
+black   = "#181818"
+red     = "#ff5059"
+green   = "#73d936"
+yellow  = "#ffdd33"
+orange  = "#cb8b3e"
+blue    = "#96A6C8"
+magenta = "#9d94c6"
+cyan    = "#1793D1"
+white   = "#f4f4ff"
