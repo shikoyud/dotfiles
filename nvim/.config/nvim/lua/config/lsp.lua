@@ -1,4 +1,4 @@
-vim.lsp.enable({'ruff', 'basedpyright', 'clangd', 'lua_ls', 'svelte', 'ts_ls', 'eslint', 'html', 'cssls', 'tailwindcss' })
+vim.lsp.enable({'ruff', 'basedpyright', 'clangd', 'lua_ls', 'svelte', 'ts_ls', 'eslint', 'html', 'cssls', 'tailwindcss', 'rust_analyzer'})
 
 vim.api.nvim_create_autocmd('Filetype', {
 	pattern = 'java',
@@ -11,13 +11,13 @@ vim.api.nvim_create_autocmd('Filetype', {
 
 
 vim.diagnostic.config({
-	virtual_lines = { current_line = true },
+	-- virtual_lines = { current_line = true },
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN] = " ",
-			[vim.diagnostic.severity.HINT] = "󰠠 ",
-			[vim.diagnostic.severity.INFO] = " "
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = " ",
+			[vim.diagnostic.severity.INFO] = " "
 		}
 	}
 })
@@ -39,23 +39,21 @@ local cmp = require("pack.cmp")
 vim.lsp.config('ruff', {
 	settings = {
 		capabilities = cmp.CAPABILITIES,
-		python = {
-			analysis = {
-				diagnosticSeverityOverrides = {
-					reportArgumentType = "none",
-					reportOptionalMemberAccess = "none"
-				}
-			}
-		}
 	}
 })
 
 vim.lsp.config('basedpyright', {
 	settings = {
 		capabilities = cmp.CAPABILITIES,
-		python = {
+		basedpyright = {
 			analysis = {
 				diagnosticSeverityOverrides = {
+					reportImplicitRelativeImport = false,
+					reportUnusedCallResult = false,
+					reportUnknownVariableType = false,
+					reportMissingTypeArgument = false,
+					reportAny = false,
+					reportExplicitAny = false,
 					reportArgumentType = "none",
 					reportOptionalMemberAccess = "none"
 				}
@@ -135,4 +133,10 @@ vim.lsp.config('eslint', {
 		'typescript',
 		'typescriptreact',
 	},
+})
+
+vim.lsp.config('rust_analyzer', {
+	settings = {
+		capabilities = cmp.CAPABILITIES,
+	}
 })

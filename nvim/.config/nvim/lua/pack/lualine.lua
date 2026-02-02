@@ -6,7 +6,7 @@ require('lualine').setup {
 		-- theme = "auto",
 		theme = {
 			normal = {
-				a = {bg = "#181818", fg = "#969696", gui = "bold"},
+				a = {bg = "#e4e4e4", fg = "#181818", gui = "bold"},
 				b = {bg = "#2c2c3f", fg = "#e4e4e4"},
 				c = {fg = "#8E3728"},
 				x = {fg = "#96a6c8"},
@@ -30,7 +30,7 @@ require('lualine').setup {
 				z = {bg = "#2c2c3f", fg = "#1793d1"},
 			},
 			replace = {
-				a = {bg = "#cb8b3e", fg = "#181818", gui = "bold"},
+				a = {bg = "#db7b3e", fg = "#181818", gui = "bold"},
 				b = {bg = "#2c2c3f", fg = "#e4e4e4"},
 				c = {fg = "#8E3728"},
 				x = {fg = "#96a6c8"},

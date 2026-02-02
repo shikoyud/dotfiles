@@ -188,8 +188,9 @@
 			"critical": 20
 		},
 		"format": " {icon}",
-		"format-charging": " <span color='#73d936'><b>{icon}</b></span>",
+		"format-charging": " <span color='#73d936'><b>󰂄</b></span>",
 		"format-icons": [
+			"<span color='#ff5059'><b>󰂎</b></span>",
 			"<span color='#ff5059'><b>󰁻</b></span>",
 			"<span color='#ffdd33'><b>󰁼</b></span>",
 			"<span color='#ffdd33'><b>󰁾</b></span>",

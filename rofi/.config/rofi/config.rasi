@@ -1,17 +1,15 @@
 @theme "/usr/share/rofi/themes/Monokai.rasi"
 
 configuration {
-	modi: "drun,window,run,filebrowser";
+	modi: "drun,window,run";
 	show-icons: true;
 	display-drun: "Apps";
-	display-run: "Run";
-	display-filebrowser: "Files";
 	display-window: "Windows";
+	display-run: "Commands";
 	drun-display-format: "{name}";
 	window-format: "{w} · {c} · {t}";
-	hover-select: true;
 	me-select-entry: "MouseSecondary";
-	me-accpet-entry: "MousePrimary";
+	me-accept-entry: "MousePrimary";
 	kb-mode-next: "Tab";
 	kb-accept-entry: "Return";
 	kb-remove-to-eol: "";
@@ -24,42 +22,42 @@ drun {
 }
 
 * {
-	font: "FiraCode Nerd Font Mono 12";
+	font: "SF Pro Display 18";
 }
 
 window {
+	border-disable-nvidia-workaround: true;
 	enabled: true;
-	border: 2px;
-	border-color: rgb(255,221,51);
 	width: 50%;
-	background-color: rgba(24,24,24, 1);
+	border-radius: 25px;
+	border-color: #18181801;
+	background-color: #18181801;
 }
 
 mainbox {
 	enabled: true;
 	padding: 15px;
+	border-radius: 25px;
 	orientation: vertical;
 	children: [ "inputbar", "listbox"];
 }
 
 inputbar {
 	enabled: true;
+	border-radius: 25px;
 	padding: 10px 10px 100px 10px;
 	margin: 10px;
-	orientation: horizontal;
+	orientation: vertical;
 	children: ["entry", "mode-switcher"];
 }
 
 entry {
 	expand: false;
-	width: 20%;
 	padding: 12px 10px 10px 10px;
+	margin: 0px 0px 10px 0px;
 	cursor: text;
-	placeholder: " <b>Search</b> ";
-	placeholder-markup: true;
-	background-color: #453D41;
+	background-color: #18181855;
 	text-color: white;
-	text-transform: bold;
 }
 
 listbox {
@@ -69,21 +67,13 @@ listbox {
 }
 
 listview {
-	columns: 2;
+	columns: 1;
 	lines: 6;
-	cycle: true;
-	dynamic: true;
 	scrollbar: false;
 	layout: vertical;
-	reverse: false;
 	fixed-height: false;
-	fixed-column: true;
-	spacing: 10px;
+	spacing: 5px;
 	border: 0px;
-}
-
-dummy {
-	expand: true;
 }
 
 mode-switcher {
@@ -96,26 +86,25 @@ button {
 	padding: 12px;
 	cursor: pointer;
 	text-color: #969696;
-	background-color: #2c2c2c;
+	background-color: #18181855;
 }
 
 button selected {
 	text-color: white;
-	background-color: #453D41;
+	background-color: #60606060;
 }
 
 element {
 	spacing: 10px;
 	padding: 10px;
-	cursor: pointer;
 }
 
 element-icon {
-	size: 36px;
+	size: 50px;
 }
 
 element selected.normal {
-	background-color: #453D41;
+	background-color: #606060;
 }
 
 element-text {

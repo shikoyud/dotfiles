@@ -106,6 +106,10 @@
       "rev": "87c857a56b7703f976d3a5ef15967d80508df6e6",
       "src": "https://github.com/andweeb/presence.nvim"
     },
+    "svgpreview-vim": {
+      "rev": "0c86ce62123f0b761dfe178fff7b841c407e6fe3",
+      "src": "https://github.com/dcorral/svgpreview-vim"
+    },
     "tailwindcss-colorizer-cmp.nvim": {
       "rev": "3d3cd95e4a4135c250faf83dd5ed61b8e5502b86",
       "src": "https://github.com/roobert/tailwindcss-colorizer-cmp.nvim"
@@ -117,6 +121,10 @@
     "telescope.nvim": {
       "rev": "e69b434b968a33815e2f02a5c7bd7b8dd4c7d4b2",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "treesj": {
+      "rev": "186084dee5e9c8eec40f6e39481c723dd567cb05",
+      "src": "https://github.com/Wansmer/treesj"
     },
     "undotree": {
       "rev": "0f1c9816975b5d7f87d5003a19c53c6fd2ff6f7f",

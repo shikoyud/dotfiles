@@ -14,6 +14,7 @@ vim.o.signcolumn = "yes"
 vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.softtabstop = 2
+vim.opt.shortmess:append('I')
 vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.swapfile = false
