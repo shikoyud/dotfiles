@@ -40,3 +40,8 @@ vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
 vim.api.nvim_create_autocmd("UILeave", {
   callback = function() io.write("\027]111\027\\") end,
 })
+
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = { 'svelte' },
+--   callback = function() vim.treesitter.start() end,
+-- })

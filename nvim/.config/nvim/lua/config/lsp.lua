@@ -1,4 +1,16 @@
-vim.lsp.enable({'ruff', 'basedpyright', 'clangd', 'lua_ls', 'svelte', 'ts_ls', 'eslint', 'html', 'cssls', 'tailwindcss', 'rust_analyzer'})
+vim.lsp.enable({
+	'ruff',
+	'basedpyright',
+	'clangd',
+	'lua_ls',
+	'svelte',
+	'ts_ls',
+	'eslint',
+	'html',
+	'cssls',
+	'tailwindcss',
+	'rust_analyzer'
+})
 
 vim.api.nvim_create_autocmd('Filetype', {
 	pattern = 'java',
@@ -36,83 +48,18 @@ vim.keymap.set("i", "<C-\\>", vim.lsp.buf.signature_help)
 
 local cmp = require("pack.cmp")
 
-vim.lsp.config('ruff', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-	}
+vim.lsp.config('*', {
+	capabilities = cmp.CAPABILITIES
 })
 
-vim.lsp.config('basedpyright', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-		basedpyright = {
-			analysis = {
-				diagnosticSeverityOverrides = {
-					reportImplicitRelativeImport = false,
-					reportUnusedCallResult = false,
-					reportUnknownVariableType = false,
-					reportMissingTypeArgument = false,
-					reportAny = false,
-					reportExplicitAny = false,
-					reportArgumentType = "none",
-					reportOptionalMemberAccess = "none"
-				}
-			}
-		}
-	}
-})
-
-vim.lsp.config('clangd', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-	}
-})
-
-vim.lsp.config('cssls', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-		css = {
-			lint = {
-				unknownAtRules = "ignore",
-			}
-		},
-	}
-})
-
-vim.lsp.config('html', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-	}
-})
-
-vim.lsp.config('tailwindcss', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-		css = {
-			lint = {
-				unknownAtRules = "ignore",
-			}
-		},
-	}
-})
-
-vim.lsp.config('svelte', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-	}
-})
 
 vim.lsp.config('lua_ls', {
 	settings = {
-		capabilities = cmp.CAPABILITIES,
 		Lua = { diagnostics = { globals = { 'vim' } } }
 	}
 })
 
 vim.lsp.config('ts_ls', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-	},
 	filetypes = {
 		'svelte',
 		'javascript',
@@ -123,9 +70,6 @@ vim.lsp.config('ts_ls', {
 })
 
 vim.lsp.config('eslint', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-	},
 	filetypes = {
 		'svelte',
 		'javascript',
@@ -133,10 +77,4 @@ vim.lsp.config('eslint', {
 		'typescript',
 		'typescriptreact',
 	},
-})
-
-vim.lsp.config('rust_analyzer', {
-	settings = {
-		capabilities = cmp.CAPABILITIES,
-	}
 })
