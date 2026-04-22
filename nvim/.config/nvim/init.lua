@@ -2,6 +2,7 @@ require('config.autocmds')
 require('config.keymap')
 require('config.options')
 require('config.lsp')
+
 require('pack.cmp')
 require('pack.fugitive')
 require('pack.gruber-darker')

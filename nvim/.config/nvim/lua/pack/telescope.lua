@@ -44,10 +44,6 @@ vim.keymap.set("n", "<leader>fc", function()
 	builtin.find_files({ cwd = "~/.config/nvim" })
 end)
 vim.keymap.set("n", "<leader>gg","<CMD>LazyGit<CR>")
-	-- function()
-  -- require("telescope").extensions.lazygit.lazygit()
-	-- end)
-
 
 telescope.load_extension("fzf")
 telescope.load_extension("lazygit")

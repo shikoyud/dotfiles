@@ -1,4 +1,5 @@
 local M = {}
+
 function M:setup()
 	local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 	local workspace_dir = '/home/shiko/.jdtls-data/' .. project_name
