@@ -1,8 +1,8 @@
 vim.pack.add({
-	"https://github.com/nvim-mini/mini.completion",
-	"https://github.com/nvim-mini/mini.surround",
-	"https://github.com/nvim-mini/mini.snippets",
-	"https://github.com/nvim-mini/mini.trailspace",
+	{ src = "https://github.com/nvim-mini/mini.completion" },
+	{ src = "https://github.com/nvim-mini/mini.surround" },
+	{ src = "https://github.com/nvim-mini/mini.snippets" },
+	{ src = "https://github.com/nvim-mini/mini.trailspace" },
 })
 
 
@@ -30,7 +30,6 @@ vim.api.nvim_set_keymap(
 vim.keymap.set("n", "dst", "<cmd>lua MiniSurroundDeleteTag()<CR>", { noremap = true, silent = true })
 
 -- Lua function to wrap visual selection in a tag
----@diagnostic disable-next-line: duplicate-set-field
 _G.MiniSurroundAddTag = function()
 	local tag = vim.fn.input("Tag name: ")
 	if tag == "" then
@@ -62,7 +61,7 @@ _G.MiniSurroundAddTag = function()
 end
 
 -- DELETE SURROUND TAG
----@diagnostic disable-next-line: duplicate-set-field
+
 _G.MiniSurroundDeleteTag = function()
 	---@diagnostic disable-next-line: deprecated
 	local row, _ = unpack(vim.api.nvim_win_get_cursor(0))

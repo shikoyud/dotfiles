@@ -1,15 +1,14 @@
 vim.pack.add({
-	"https://github.com/roobert/tailwindcss-colorizer-cmp.nvim",
-	"https://github.com/onsails/lspkind.nvim",
-	"https://github.com/hrsh7th/cmp-nvim-lsp",
-	"https://github.com/rafamadriz/friendly-snippets",
-	"https://github.com/hrsh7th/cmp-buffer",
-	"https://github.com/FelipeLema/cmp-async-path",
-	"https://github.com/L3MON4D3/LuaSnip",
-	"https://github.com/saadparwaiz1/cmp_luasnip",
-	"https://github.com/hrsh7th/nvim-cmp",
+	{ src = "https://github.com/roobert/tailwindcss-colorizer-cmp.nvim" },
+	{ src = "https://github.com/onsails/lspkind.nvim" },
+	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
+	{ src = "https://github.com/hrsh7th/cmp-buffer" },
+	{ src = "https://github.com/FelipeLema/cmp-async-path" },
+	{ src = "https://github.com/L3MON4D3/LuaSnip" },
+	{ src = "https://github.com/saadparwaiz1/cmp_luasnip" },
+	{ src = "https://github.com/hrsh7th/nvim-cmp" },
 })
-
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local lspkind = require("lspkind")
@@ -156,5 +155,5 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CursorMovedI" }, {
 })
 
 local M = {}
-M.capabilities = require("cmp_nvim_lsp").default_capabilities()
+M.CAPABILITIES = require("cmp_nvim_lsp").default_capabilities()
 return M

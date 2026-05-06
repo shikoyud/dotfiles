@@ -1,9 +1,9 @@
-vim.pack.add({"https://github.com/stevearc/oil.nvim"})
+vim.pack.add({"https://github.com/stevearc/oil.nvim" })
 
 require("oil").setup({
   columns = {
     "icon",
-    {"permissions", highlight ="Special"},
+    { "permissions", highlight = "Special" },
     "size",
     "mtime",
   },
@@ -13,5 +13,4 @@ require("oil").setup({
   skip_confirm_for_simple_edits = true
 })
 
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
+vim.keymap.set("n", "-", "<CMD>Oil<CR>")

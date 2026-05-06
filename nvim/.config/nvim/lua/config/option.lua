@@ -1,0 +1,23 @@
+vim.o.backup = false
+vim.o.clipboard = "unnamedplus"
+vim.opt.cmdheight = 0
+vim.opt.guicursor = "n-v-c:block"
+vim.o.ignorecase = true
+vim.o.list = true
+vim.o.listchars = "space:·,tab:▸\\ "
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.scrolloff = 8
+vim.o.shiftwidth = 2
+vim.o.signcolumn = "yes"
+vim.o.smartcase = true
+vim.o.smartindent = true
+vim.o.softtabstop = 2
+vim.opt.shortmess:append('I')
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.o.swapfile = false
+vim.o.tabstop = 2
+vim.o.undofile = true
+vim.o.updatetime = 250
+vim.o.winborder = "rounded"
