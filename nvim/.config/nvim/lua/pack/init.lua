@@ -11,4 +11,7 @@ require("pack.theme")
 require("pack.treesitter")
 require("pack.undotree")
 
+-- LANGUAGE SPECIFIC PACKS
+
+require("pack.crates")
 --require("pack.jdtls")

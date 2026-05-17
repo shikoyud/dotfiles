@@ -40,3 +40,17 @@ vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
 vim.api.nvim_create_autocmd("UILeave", {
   callback = function() io.write("\027]111\027\\") end,
 })
+
+vim.api.nvim_create_autocmd('Filetype', {
+	pattern = 'java',
+	callback = function()
+		require("lsp.jdtls.jdtls_setup").setup()
+	end
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.js",
+  callback = function()
+    vim.bo.filetype = "jsx"
+  end,
+})

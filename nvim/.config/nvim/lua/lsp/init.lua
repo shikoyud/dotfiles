@@ -1,6 +1,5 @@
 vim.lsp.enable({
-	'ruff',
-	'basedpyright',
+	'pyright',
 	'clangd',
 	'lua_ls',
 	'svelte',
@@ -12,16 +11,7 @@ vim.lsp.enable({
 	'rust_analyzer'
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
-	pattern = 'java',
-	callback = function()
-		require("lsp.jdtls.jdtls_setup").setup()
-	end
-})
-
-
 vim.diagnostic.config({
-	-- virtual_lines = { current_line = true },
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = " ",
@@ -44,13 +34,23 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set('n', '<C-s>', vim.lsp.buf.format)
 vim.keymap.set("i", "<C-\\>", vim.lsp.buf.signature_help)
 
-local web_filetypes = { 'svelte', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', }
 local cmp = require("pack.cmp")
+local web_filetypes = { 'svelte', 'javascript', 'jsx', 'typescript', 'tsx', }
 
 vim.lsp.config('*', { capabilities = cmp.capabilities })
 
 vim.lsp.config('lua_ls', { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } })
 
 vim.lsp.config('ts_ls', { filetypes = web_filetypes })
-
 vim.lsp.config('eslint', { filetypes = web_filetypes })
+vim.lsp.config('tailwindcss', { filetypes = web_filetypes })
+
+vim.lsp.config('pyright', {
+	settings = {
+		python = {
+			analysis = {
+				diagnosticSeverityOverrides = { reportPrivateImportUsage = "none" }
+			}
+		}
+	}
+})
