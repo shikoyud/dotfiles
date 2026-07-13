@@ -7,3 +7,4 @@ SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions
 SETUVAR _fisher_plugins:edc/bass\x1ejorgebucaran/nvm\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_greeting:\x1d
+SETUVAR fish_user_paths:/home/shiko/flutter/bin\x1e/home/shiko/\x2ebun/bin

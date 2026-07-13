@@ -84,6 +84,7 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<C-k>"] = cmp.mapping.select_prev_item(),
+    ['<C-Space>'] = cmp.mapping.abort(),
 		["<CR>"]  = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
 		---@diagnostic disable-next-line: unused-local
 		["<Tab>"] = cmp.mapping(function(fallback)

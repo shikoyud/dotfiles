@@ -14,4 +14,5 @@ require("pack.undotree")
 -- LANGUAGE SPECIFIC PACKS
 
 require("pack.crates")
---require("pack.jdtls")
+require("pack.roslyn")
+require("pack.jdtls")

@@ -113,6 +113,10 @@
       "rev": "87c857a56b7703f976d3a5ef15967d80508df6e6",
       "src": "https://github.com/andweeb/presence.nvim"
     },
+    "roslyn.nvim": {
+      "rev": "49526a2958893d0c8000d03b16ed923340ce13cc",
+      "src": "https://github.com/seblyng/roslyn.nvim"
+    },
     "svgpreview-vim": {
       "rev": "0c86ce62123f0b761dfe178fff7b841c407e6fe3",
       "src": "https://github.com/dcorral/svgpreview-vim"

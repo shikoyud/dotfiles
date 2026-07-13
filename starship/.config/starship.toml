@@ -2,7 +2,7 @@
 
 add_newline = true
 palette = 'gruber-darker'
-scan_timeout = 1000
+scan_timeout = 2000
 
 # [╭─](bold green)\
 format = """
