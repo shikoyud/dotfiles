@@ -41,7 +41,17 @@ local web_filetypes = { 'svelte', 'javascript', 'javascriptreact', 'typescript',
 
 vim.lsp.config('*', { capabilities = cmp.capabilities })
 
-vim.lsp.config('lua_ls', { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } })
+vim.lsp.config('lua_ls', { settings = {
+  Lua = {
+    diagnostics = { globals = { 'vim' } },
+    workspace = {
+      checkThirdParty = false,
+    },
+    configFile = {
+      enable = true,
+    },
+  },
+}})
 
 vim.lsp.config('vtsls', { filetypes = web_filetypes })
 vim.lsp.config('eslint', { filetypes = web_filetypes })
