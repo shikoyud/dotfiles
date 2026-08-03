@@ -9,8 +9,8 @@ DEFAULT_SINK=$(pactl get-default-sink)
 
 if [[ "$DEFAULT_SINK" = "$SPEAKER" ]]; then
 	pactl set-default-sink $HEADSET
-	notify-send -t 1000 "Switched to headset"
+  hyprctl notify 1 1500 "rgb(40e0d0)" "Switched to headset"
 else
 	pactl set-default-sink $SPEAKER
-	notify-send -t 1000 "Switched to speaker"
+  hyprctl notify 1 1500 "rgb(ff9922)" "Switched to speaker"
 fi
