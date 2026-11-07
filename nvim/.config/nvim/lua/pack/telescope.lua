@@ -40,7 +40,7 @@ vim.keymap.set("n", "<leader>fG", builtin.current_buffer_fuzzy_find)
 vim.keymap.set("n", "<leader>fb", builtin.buffers)
 vim.keymap.set("n", "<leader>fh", builtin.help_tags)
 vim.keymap.set("n", "<leader>fc", function()
-	builtin.find_files({ cwd = "~/.config/nvim" })
+	builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end)
 
 telescope.load_extension("fzf")
