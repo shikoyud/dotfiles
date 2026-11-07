@@ -15,6 +15,10 @@ local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 local colorizer = require("tailwindcss-colorizer-cmp").formatter
 
+require("luasnip.loaders.from_lua").lazy_load({
+  paths = { "~/.config/nvim/lua/snippets" }
+})
+
 local lsp_kinds = {
 	Class = " ",
 	Color = " ",
