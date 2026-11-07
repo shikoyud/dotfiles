@@ -1,6 +1,6 @@
 vim.o.backup = false
 vim.o.clipboard = "unnamedplus"
-vim.o.cmdheight = 0
+-- vim.o.cmdheight = 0
 vim.o.expandtab = true
 vim.o.guicursor = "n-v-c:block"
 vim.o.ignorecase = true

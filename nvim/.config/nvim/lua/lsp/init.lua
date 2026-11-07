@@ -35,6 +35,7 @@ vim.keymap.set('n', '<C-s>', vim.lsp.buf.format)
 vim.keymap.set("i", "<C-\\>", vim.lsp.buf.signature_help)
 
 local cmp = require("pack.cmp")
+local ts_filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'js', 'ts'}
 local web_filetypes = { 'svelte', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'js', 'ts'}
 
 vim.lsp.config('*', { capabilities = cmp.capabilities })
@@ -51,7 +52,7 @@ vim.lsp.config('lua_ls', { settings = {
   },
 }})
 
-vim.lsp.config('tsc', { filetypes = web_filetypes })
+vim.lsp.config('tsc', { filetypes = ts_filetypes })
 vim.lsp.config('eslint', { filetypes = web_filetypes })
 vim.lsp.config('tailwindcss', { filetypes = web_filetypes })
 
