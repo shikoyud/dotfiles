@@ -1,9 +1,0 @@
-[font]
-normal = { family = "JetBrainsMono Nerd Font Mono" }
-size = 21.0
-
-[window]
-opacity = 0.90
-
-[general]
-import = ["~/.config/alacritty/gruber-darker.toml"]

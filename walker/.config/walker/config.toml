@@ -1,0 +1,38 @@
+[keybinds]
+next = ["Down", "ctrl j"]
+previous = ["Up", "ctrl k"]
+left = ["Left", "ctrl h"]
+right = ["Right", "ctrl l"]
+down = ["Down", "ctrl j"]
+up = ["Up", "ctrl k"]
+quick_activate = []
+
+[shell]
+anchor_top = false
+
+[placeholders]
+"default" = { input = "Search", list = "No Results" }
+
+[providers.actions]
+
+runner = [
+  { action = "runterminal", label = "run in terminal", bind = "Return" },
+  { action = "run", default = true, bind = "shift Return" },
+]
+
+clipboard = [
+  { action = "show_images_only", label = "only images", bind = "Tab", after = "AsyncClearReload" },
+  { action = "show_text_only", label = "only text", bind = "Tab", after = "AsyncClearReload" },
+  { action = "show_combined", label = "show all", bind = "Tab", after = "AsyncClearReload" },
+  { action = "unpin", bind = "ctrl alt p", after = "AsyncClearReload" },
+  { action = "pin", bind = "ctrl alt p", after = "AsyncClearReload" },
+]
+
+playerctl = [
+  { action = "pause", label = "pause", bind = "space", after = "Nothing", default = true },
+  { action = "play", label = "play", bind = "space", after = "Nothing", default = true },
+  { action = "vol_up", label = "vol+", bind = "ctrl equal", after = "Nothing" },
+  { action = "vol_down", label = "vol-", bind = "ctrl minus", after = "Nothing" },
+  { action = "seek_back", label = "backward", bind = "Left", after = "Nothing" },
+  { action = "seek_forward", label = "forward", bind = "Right", after = "Nothing" },
+]
