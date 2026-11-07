@@ -15,8 +15,10 @@ local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 local colorizer = require("tailwindcss-colorizer-cmp").formatter
 
+local snippet_path = vim.fn.stdpath("config") .. "/lua/snippets"
+snippet_path = snippet_path:gsub("\\", "/")
 require("luasnip.loaders.from_lua").lazy_load({
-  paths = { "~/.config/nvim/lua/snippets" }
+  paths = { snippet_path }
 })
 
 local lsp_kinds = {
