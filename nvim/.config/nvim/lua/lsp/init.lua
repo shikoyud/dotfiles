@@ -3,14 +3,12 @@ vim.lsp.enable({
 	'clangd',
 	'lua_ls',
 	'svelte',
-	'vtsls',
 	'eslint',
 	'html',
 	'cssls',
 	'tailwindcss',
 	'rust_analyzer',
-	'roslyn',
-	'sourcekit',
+  'tsc'
 })
 
 vim.diagnostic.config({
@@ -43,7 +41,7 @@ vim.lsp.config('*', { capabilities = cmp.capabilities })
 
 vim.lsp.config('lua_ls', { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } })
 
-vim.lsp.config('vtsls', { filetypes = web_filetypes })
+vim.lsp.config('tsc', { filetypes = web_filetypes })
 vim.lsp.config('eslint', { filetypes = web_filetypes })
 vim.lsp.config('tailwindcss', { filetypes = web_filetypes })
 
