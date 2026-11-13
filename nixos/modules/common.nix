@@ -98,7 +98,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    git curl wget btop tmux starship
+    git curl wget btop stow tmux starship
     pciutils usbutils lm_sensors smartmontools dnsutils
     ripgrep fd jq tree-sitter gcc gnumake unzip
     zoxide fastfetch nmap
