@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ../../modules/common.nix
     ../../modules/server.nix
+    ../../modules/dismess.nix
   ];
 
   networking.hostName = "macmini";
