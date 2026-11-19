@@ -176,6 +176,6 @@ in
   };
 
   # handy on the command line: `npm install` in server/, checking yt-dlp, etc.
-  environment.systemPackages = [ pkgs.yt-dlp pkgs.ffmpeg pkgs.git ];
+  environment.systemPackages = [ node pkgs.yt-dlp pkgs.ffmpeg pkgs.git ];
 }
 

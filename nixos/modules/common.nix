@@ -102,6 +102,18 @@
     pciutils usbutils lm_sensors smartmontools dnsutils
     ripgrep fd jq tree-sitter gcc gnumake unzip
     zoxide fastfetch nmap
-    uv node
+    uv
   ];
+
+  environment.localBinInPath = true;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+      openssl
+      libffi
+    ];
+  };
 }
