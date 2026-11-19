@@ -102,5 +102,6 @@
     pciutils usbutils lm_sensors smartmontools dnsutils
     ripgrep fd jq tree-sitter gcc gnumake unzip
     zoxide fastfetch nmap
+    uv node
   ];
 }

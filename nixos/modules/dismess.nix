@@ -31,7 +31,9 @@ let
       stun_servers = [ "stun.l.google.com:19302" "stun.cloudflare.com:3478" ];
     };
     room = {
-      max_participants = 6;
+      # Each person can be in the room up to 3 times (the app page, "<id>~voice" for native audio,
+      # "<id>~listener"), plus "__music". 6 was too few once native audio became the default.
+      max_participants = 30;
       empty_timeout = 300;
     };
     logging.level = "info";
@@ -174,6 +176,6 @@ in
   };
 
   # handy on the command line: `npm install` in server/, checking yt-dlp, etc.
-  environment.systemPackages = [ node pkgs.yt-dlp pkgs.ffmpeg pkgs.git ];
+  environment.systemPackages = [ pkgs.yt-dlp pkgs.ffmpeg pkgs.git ];
 }
 
